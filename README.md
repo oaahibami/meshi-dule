@@ -31,3 +31,40 @@ https://docs.google.com/spreadsheets/d/11w7gcgHj3JLqAGrPTuWFktIj8aC17aYAE5shQQUr
 5.イベント編集機能  
 6.イベント削除機能  
 7.イベント毎に開催終了後は思い出としてアルバム機能とする事が出来るようコメント機能でも任意で画像投稿出来るようにする。  
+
+# テーブル設計
+
+## Usersテーブル
+| Column             | Type   | Options                           |
+|--------------------|--------|-----------------------------------|
+| nickname           | string | null: false                       |
+| email              | string | null: false, unique: true         |
+| encrypted_password | string | null: false                       |
+
+### Association
+- has_many :events
+- has_many :comments
+
+
+## eventsテーブル
+| Column             | Type        | Options                           |
+|--------------------|-------------|-----------------------------------|
+| event_title        | string      | null: false                       |
+| event_description  | string      | null: false                       |
+| comment            | string      | null: false                       |
+| user               | references  | null: false, foreign key: true    |
+
+### Association
+- belongs_to :user
+- has_many :comment
+
+
+## commentsテーブル
+| Column             | Type        | Options                           |
+|--------------------|-------------|-----------------------------------|
+| user               | references  | null: false, foreign key: true    |
+| event              | references  | null: false, foreign key: true    |
+
+### Association
+- belongs_to :user
+- belongs_to :comment
