@@ -42,8 +42,8 @@ https://docs.google.com/spreadsheets/d/11w7gcgHj3JLqAGrPTuWFktIj8aC17aYAE5shQQUr
 | encrypted_password | string | null: false                       |
 
 ### Association
-- has_many :events
-- has_many :comments
+- has_many :event
+- has_many :comment
 
 
 ## eventsテーブル
