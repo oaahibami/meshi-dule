@@ -49,9 +49,9 @@ https://docs.google.com/spreadsheets/d/11w7gcgHj3JLqAGrPTuWFktIj8aC17aYAE5shQQUr
 ## eventsテーブル
 | Column             | Type        | Options                           |
 |--------------------|-------------|-----------------------------------|
-| event_title        | string      | null: false                       |
-| event_description  | string      | null: false                       |
-| comment            | string      | null: false                       |
+| event_title        | text        | null: false                       |
+| event_description  | text        | null: false                       |
+| comment            | text        | null: false                       |
 | user               | references  | null: false, foreign key: true    |
 
 ### Association
